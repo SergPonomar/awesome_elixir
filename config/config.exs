@@ -19,6 +19,12 @@ config :awesome_elixir, AwesomeElixirWeb.Endpoint,
   ],
   pubsub_server: AwesomeElixir.PubSub
 
+config :awesome_elixir, AwesomeElixir.Scheduler,
+  jobs: [
+    # Refresh data every day at 03:00 AM
+    {"0 3 * * *", {AwesomeElixir.Github, :refresh_data, []}},
+  ]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

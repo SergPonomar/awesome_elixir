@@ -15,9 +15,9 @@ defmodule AwesomeElixir.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: AwesomeElixir.PubSub},
       # Start the Endpoint (http/https)
-      AwesomeElixirWeb.Endpoint
-      # Start a worker by calling: AwesomeElixir.Worker.start_link(arg)
-      # {AwesomeElixir.Worker, arg}
+      AwesomeElixirWeb.Endpoint,
+      # Sheduler for refresh data,
+      AwesomeElixir.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

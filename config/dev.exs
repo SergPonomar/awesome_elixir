@@ -29,6 +29,9 @@ config :awesome_elixir, AwesomeElixirWeb.Endpoint,
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
+config :awesome_elixir, :github_api,
+  token: System.get_env("GITHUBTOKEN", "")
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

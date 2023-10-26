@@ -1,3 +1,39 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link phx-track-static rel="stylesheet" href={~p"/assets/home.css"} />
 <.flash_group flash={@flash} />
-<div>HOME PAGE</div>
+
+<header class="header">
+	<div class="header__container container-default">
+		<div class="header__title">		
+			<img
+	            class="header__logo"
+	            src={~p"/images/logo.png"}
+	            name="elixir"
+	      	/>
+	      	<h1>Awesome Elixir</h1>
+		</div>
+      	<p class="header__description">A curated list of amazingly awesome Elixir libraries</p>
+	</div>
+</header>
+<section class="home-page">
+	<div class="container-default">
+		<%= if length(@categories) > 0 do %>
+			<%= for cat <- @categories do %>
+				<h1 class="category"><%= cat.name %></h1>
+				<%= for repo <- cat.repo do %>
+					<.repo_card
+						name={repo.name}
+						description={repo.description}
+						stars={repo.stars}
+						last_commited={repo.last_commited}
+						path={repo.path}
+					/>
+				<% end %>
+			<% end %>
+		<%= else %>
+			<h1 class="nothing-found">Nothing Found</h1>
+		<%= end %>
+	</div>
+</section>

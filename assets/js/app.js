@@ -39,3 +39,4 @@ import "phoenix_html"
 // >> liveSocket.disableLatencySim()
 // window.liveSocket = liveSocket
 
+import "../css/app.css"
